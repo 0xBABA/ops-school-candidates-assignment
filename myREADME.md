@@ -142,3 +142,19 @@ Host server*
    StrictHostKeyChecking no
    UserKnownHostsFile=/dev/null
 ```
+
+<br />
+
+# Ex6
+The script is available in the relevant file.
+It basically does the following:
+
+1. Verify there are at least 2 arguments on the command line and parse the arguments.
+2. Checks whether the user is root or not. if it is root - copies the ssh configuration and keys from the vagrant user home dir so these could be used to establish a seamless connection to the other server.
+3. Checks the current host and set the target host accordingly so the same script can run on either serever.
+4. Copy the relevant files using rsync command. I chose rsync over scp since it's verbose output is better suited for parsing the amount of bytes copied.
+5. Print the amount of bytes copied.
+
+I tested this both as vagrant user inside either servers, and also as root during provisioning (can provide a relevant vagrant file if required).
+
+### GOOD LUCK TO ME.
